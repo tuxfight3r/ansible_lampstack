@@ -1,0 +1,6 @@
+[webservers]
+lamp-host1.internal ansible_host=172.17.8.110
+lamp-host2.internal ansible_host=172.17.8.111
+
+[loadbalancers]
+lb-host1.internal ansible_host=172.17.8.150

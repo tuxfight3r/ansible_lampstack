@@ -1,0 +1,22 @@
+---
+- name: lamp-host1.internal
+  box: oracle-7-x86_64
+  ram: 1024
+  ip: 172.17.8.110
+  hosts_entries:
+    - lamp-host1.internal
+
+- name: lamp-host2.internal
+  box: oracle-7-x86_64
+  ram: 1024
+  ip: 172.17.8.111
+  hosts_entries:
+    - lamp-host2.internal
+
+- name: lb-host1.internal
+  box: oracle-7-x86_64
+  ram: 1024
+  ip: 172.17.8.150
+  hosts_entries:
+    - lb-host1.internal
+

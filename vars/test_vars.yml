@@ -1,0 +1,23 @@
+---
+#haproxy settings
+haproxy_backend_servers:
+  - name: lamp-host1
+    address: 172.17.8.110:80
+  - name: lamp-host2
+    address: 172.17.8.111:80
+
+vhost_domain: hosting.test.local
+vhost_folder: "/var/www/html/project"
+
+#Apache settings
+apache_vhosts:
+  - { servername: "{{ vhost_domain }}", documentroot: "{{vhost_folder}}"}
+
+apache_vhosts_ssl:
+  - servername: "{{vhost_domain}}"
+    documentroot: "{{vhost_folder}}"
+    certificate_file: "/etc/httpd/certs/{{ vhost_domain }}.cert"
+    certificate_key_file: "/etc/httpd/certs/{{vhost_domain }}.key"
+    # Optional.
+    #certificate_chain_file: "/path/to/certificate_chain.crt"
+

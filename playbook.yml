@@ -1,0 +1,22 @@
+---
+# Ansible playbook for a LAMP server.
+
+- hosts: webservers
+  vars_files:
+    - vars/main.yml
+    - vars/{{env_var}}_vars.yml
+    - vars/{{env_var}}_encrypted.yml
+
+  roles:
+    - { role: geerlingguy.apache, tags: ['apache'] }
+    - { role: geerlingguy.php,    tags: ['php'] }
+    - { role: george_deploy,      tags: ['george'] }
+
+- hosts: loadbalancers
+  vars_files:
+    - vars/main.yml
+    - vars/{{env_var}}_vars.yml
+
+  roles:
+    - { role: geerlingguy.haproxy, tags: ['haproxy'] }
+

@@ -1,0 +1,7 @@
+---
+#haproxy settings
+haproxy_backend_servers:
+  - name: lamp-host1
+    address: 172.17.8.110:80
+  - name: lamp-host2
+    address: 172.17.8.111:80
